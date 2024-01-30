@@ -1,0 +1,15 @@
+public Contrat findByEmployeeId(Long id);
+
+public List<Departement> findByLibelleContains(String libelle);
+
+@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
+	private Departement departement;
+
+	@OneToOne(mappedBy = "employee")
+
+	private Contrat contrat;
+	
+	@ManyToMany(mappedBy = "employees")
+	@JsonIgnore
+	private List<Tache> taches;
